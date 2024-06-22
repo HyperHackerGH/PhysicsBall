@@ -36,7 +36,7 @@ function main() {
     onUpdate(() => {
         for (let i of enemies) {
             var dir = ball.pos.sub(i.pos).unit()
-            i.move(dir, 100)
+            i.move(dir.scale(100))
         }
     })
 
@@ -69,9 +69,7 @@ async function requestDeviceOrientation() {
                 main()
                 window.addEventListener("deviceorientation", handleOrientation)
             }
-            else {
-                alert("Permission was denied")
-            }
+            else {alert("Permission was denied")}
         }
         catch (error) {alert(error)}
     }
