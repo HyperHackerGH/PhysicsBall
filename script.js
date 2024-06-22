@@ -28,7 +28,7 @@ function main() {
 
         add([
             rect(120, 40),
-            pos(width() / 2 - 60, height() / 2 + 90),
+            pos(width() / 2 - 60, height() / 2 + 70),
             color(255, 255, 255),
             area(),
             "restart"
@@ -43,7 +43,7 @@ function main() {
             text("Restart", {
                 size: 24
             }),
-            pos(width() / 2 - 50, height() / 2 + 60),
+            pos(width() / 2 - 50, height() / 2 + 80),
             color(0, 0, 0)
         ])
     })
