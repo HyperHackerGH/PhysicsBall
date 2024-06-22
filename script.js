@@ -11,66 +11,70 @@ var enemies = []
 var ball
 
 function main() {
-    kaboom({
-        background: [0, 0, 0]
-    })
+    scene("game", () => {
+        kaboom({
+            background: [0, 0, 0]
+        })
 
-    ball = add([
-        circle(16),
-        pos(width() / 2, height() / 2),
-        color(255, 255, 255),
-        "ball"
-    ])
-
-    loop(7, () => {
-        var posx = randi(0, width() - 16)
-        var posy = randi(0, height() - 16)
-
-        var blinkcount = 0
-        
-        var blinker = add([
-            circle(15),
-            pos(posx, posy),
-            color(255, 0, 0),
+        ball = add([
+            circle(16),
+            pos(width() / 2, height() / 2),
+            color(255, 255, 255),
+            "ball"
         ])
 
-        var blinking = setInterval(() => {
-            if (blinkcount < 10) {
-                if (blinkcount % 2 == 0) {blinker.color = rgb(255, 0, 0)}
-                else {blinker.color = rgb(0, 0, 0)}
-                blinkcount++
-            }
-            else {
-                destroy(blinker)
-                var newenemy = add([
-                    circle(15),
-                    pos(posx, posy),
-                    color(255, 0, 0),
-                    area(),
-                    body(),
-                    "enemy"
-                ])
+        loop(12, () => {
+            var posx = randi(0, width() - 16)
+            var posy = randi(0, height() - 16)
 
-                enemies.push(newenemy)
-                
-                clearInterval(blinking)
+            var blinkcount = 0
+
+            var blinker = add([
+                circle(15),
+                pos(posx, posy),
+                color(255, 0, 0),
+            ])
+
+            var blinking = setInterval(() => {
+                if (blinkcount < 10) {
+                    if (blinkcount % 2 == 0) {blinker.color = rgb(255, 0, 0)}
+                    else {blinker.color = rgb(0, 0, 0)}
+                    blinkcount++
+                }
+                else {
+                    destroy(blinker)
+                    var newenemy = add([
+                        circle(15),
+                        pos(posx, posy),
+                        color(255, 0, 0),
+                        area(),
+                        body(),
+                        "enemy"
+                    ])
+
+                    enemies.push(newenemy)
+
+                    clearInterval(blinking)
+                }
+            }, 200)
+        })
+
+        onUpdate(() => {
+            for (let i of enemies) {
+                var dir = ball.pos.sub(i.pos).unit()
+                i.move(dir.scale(100))
             }
-        }, 200)
+        })
+
+        add([
+            circle(10),
+            pos(Math.random() * width(), Math.random() * height()),
+            color(255, 215, 0),
+            "item"
+        ])
     })
 
-    onUpdate(() => {
-        for (let i of enemies) {
-            var dir = ball.pos.sub(i.pos).unit()
-            i.move(dir.scale(100))
-        }
-    })
-
-    add([
-        circle(10),
-        pos(Math.random() * width(), Math.random() * height()),
-        color(255, 215, 0),
-        "item"
-    ])
+    go("game")
 }
 
 function handleOrientation(event) {
