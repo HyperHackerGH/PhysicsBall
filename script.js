@@ -22,7 +22,7 @@ function main() {
     ])
 
     add([
-        rect(16, 16),
+        circle(10),
         pos(Math.random() * width(), Math.random() * height()),
         color(255, 215, 0),
         "item"
@@ -31,7 +31,7 @@ function main() {
 
 function handleOrientation(event) {
     const {alpha, beta, gamma} = event
-    const speed = 10
+    const speed = 15
 
     if (ball) {
         ball.pos.x += gamma * speed * dt()
