@@ -22,7 +22,7 @@ function main() {
         "ball"
     ])
 
-    loop(5, () => {
+    loop(7, () => {
         var posx = randi(0, width() - 16)
         var posy = randi(0, height() - 16)
 
@@ -35,12 +35,13 @@ function main() {
         ])
 
         var blinking = setInterval(() => {
-            if (blinkcount < 8) {
+            if (blinkcount < 10) {
                 if (blinkcount % 2 == 0) {blinker.color = rgb(255, 0, 0)}
                 else {blinker.color = rgb(0, 0, 0)}
                 blinkcount++
             }
             else {
+                destroy(blinker)
                 var newenemy = add([
                     circle(15),
                     pos(posx, posy),
