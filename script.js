@@ -7,19 +7,44 @@ const device = (() => {
     return "desktop"
 })()
 
-var test
+var ball;
 
 function main() {
-    test = add([
-        text("a, b, g"),
-        pos(80, 80)
-    ])
+    kaboom();
+
+    add([
+        text("Tilt to move the ball!"),
+        pos(80, 80),
+    ]);
+
+    ball = add([
+        circle(16),
+        pos(width() / 2, height() / 2),
+        color(0, 0, 255),
+        "ball"
+    ]);
+
+    add([
+        rect(16, 16),
+        pos(Math.random() * width(), Math.random() * height()),
+        color(255, 215, 0),
+        "item"
+    ]);
 }
 
 function handleOrientation(event) {
-    const {alpha, beta, gamma} = event
-    
-    test.text = `${beta.toFixed(1)}, ${gamma.toFixed(1)}`
+    const { beta, gamma } = event;
+    const speed = 2;
+
+    // Move ball based on beta and gamma values
+    if (ball) {
+        ball.pos.x += gamma * speed * dt();
+        ball.pos.y += beta * speed * dt();
+
+        // Prevent ball from going out of bounds
+        ball.pos.x = Math.max(0, Math.min(ball.pos.x, width()));
+        ball.pos.y = Math.max(0, Math.min(ball.pos.y, height()));
+    }
 }
 
 async function requestDeviceOrientation() {
