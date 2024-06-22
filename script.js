@@ -145,7 +145,7 @@ if (device !== "phone") {
 else {
     document.body.innerHTML = document.body.innerHTML + `
 <div id = "container">
-    <h3>PhysicsBall</h3>
+    <h1>PhysicsBall</h1>
     <button id = "start">Play</button>
 </div>
     `
