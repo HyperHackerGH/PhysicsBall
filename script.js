@@ -14,6 +14,15 @@ function main() {
     kaboom({
         background: [0, 0, 0]
     })
+
+    scene("lose", () => {
+        add([
+            text("You lose!"),
+            size(100),
+            pos(center()),
+            origin("center")
+        ])
+    })
     
     scene("game", () => {
         ball = add([
@@ -65,6 +74,8 @@ function main() {
                 i.move(dir.scale(100))
             }
         })
+
+        oncollide("ball", "enemy", (ball, enemy) => {go("lose")})
 
         add([
             circle(10),
