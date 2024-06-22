@@ -23,12 +23,12 @@ function main() {
             text(`Points: ${points}\n\n   You\n  lose!`, {
                 size: 42
             }),
-            pos(width() / 2 - 107, height() / 2 - 150)
+            pos(width() / 2 - 115, height() / 2 - 130)
         ])
 
         add([
             rect(120, 40),
-            pos(width() / 2 - 60, height() / 2 + 50),
+            pos(width() / 2 - 60, height() / 2 + 70),
             color(255, 255, 255),
             area(),
             "restart"
