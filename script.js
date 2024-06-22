@@ -29,7 +29,7 @@ function main() {
 
 function handleOrientation(event) {
     const {alpha, beta, gamma} = event
-    const speed = 5
+    const speed = 10
 
     if (ball) {
         ball.pos.x += gamma * speed * dt()
