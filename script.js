@@ -7,8 +7,10 @@ const device = (() => {
     return "desktop"
 })()
 
+var test
+
 function main() {
-    const test = add([
+    test = add([
         text("a, b, g"),
         pos(80, 80)
     ])
