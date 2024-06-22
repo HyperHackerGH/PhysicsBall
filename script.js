@@ -17,8 +17,8 @@ function main() {
 
     scene("lose", () => {
         add([
-            text("You lose!", {
-                size: 48
+            text("You\nlose!", {
+                size: 24
             }),
             pos(center())
         ])
