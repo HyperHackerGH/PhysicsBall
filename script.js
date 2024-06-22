@@ -34,22 +34,24 @@ function main() {
             color(255, 0, 0),
         ])
 
-        loop(0.2, () => {
+        var blinking = setInterval(() => {
             if (blinkcount < 8) {
                 if (blinkcount % 2 == 0) {blinker.color = rgb(255, 0, 0)}
                 else {blinker.color = rgb(0, 0, 0)}
                 blinkcount++
             }
-        })
-        
-        var newenemy = add([
-            circle(15),
-            pos(posx, posy),
-            color(255, 0, 0),
-            area(),
-            body(),
-            "enemy"
-        ])
+            else {
+                var newenemy = add([
+                    circle(15),
+                    pos(posx, posy),
+                    color(255, 0, 0),
+                    area(),
+                    body(),
+                    "enemy"
+                ])
+                clearInterval(blinking)
+            }
+        }, 200)
 
         enemies.push(newenemy)
     })
