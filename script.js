@@ -24,7 +24,7 @@ function main() {
     ])
 
     loop(5, () => {
-        lastpos = [enemies[enemies.length - 1].pos.x, enemies[enemies.length - 1].pos.y]
+        if (enemies.length > 0) {lastpos = [enemies[enemies.length - 1].pos.x, enemies[enemies.length - 1].pos.y]}
         
         var newenemy = add([
             circle(15),
