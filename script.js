@@ -23,9 +23,27 @@ function main() {
     ])
 
     loop(5, () => {
+        var posx = randi(0, width() - 16)
+        var posy = randi(0, height() - 16)
+
+        var blinkcount = 0
+        
+        var blinker = add([
+            circle(15),
+            pos(posx, posy),
+            color(255, 0, 0),
+        ])
+
+        loop(0.2, () => {
+            if (blinkcount < 8) {
+                if (blinkcount % 2 == 0) {blinker.color = rgb(255, 0, 0)}
+                else {blinker.color = rgb(0, 0, 0)}
+            }
+        })
+        
         var newenemy = add([
             circle(15),
-            pos(10, 10),
+            pos(posx, posy),
             color(255, 0, 0),
             area(),
             body(),
