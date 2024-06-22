@@ -8,6 +8,10 @@ const device = (() => {
 })()
 
 function main() {
+    const test = add([
+        text(`${alpha}, ${beta}, ${gamma}`),
+        pos(80, 80)
+    ])
     
     add([
         text("PhysicsBall"),
@@ -19,10 +23,7 @@ function main() {
 function handleOrientation(event) {
     const {alpha, beta, gamma} = event
     
-    add([
-        text(`${alpha}, ${beta}, ${gamma}`),
-        pos(80, 80)
-    ])
+    test.text = `${alpha}, ${beta}, ${gamma}`
 }
 
 async function requestDeviceOrientation() {
