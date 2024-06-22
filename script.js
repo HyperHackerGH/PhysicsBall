@@ -27,6 +27,8 @@ function main() {
             circle(15),
             pos(20, 20),
             color(255, 0, 0),
+            area(),
+            body(),
             "enemy"
         ])
 
