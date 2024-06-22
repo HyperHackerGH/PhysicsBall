@@ -11,6 +11,8 @@ var enemies = []
 var ball
 
 function main() {
+    document.getElementById("start").remove()
+    
     kaboom({
         background: [0, 0, 0]
     })
@@ -20,7 +22,7 @@ function main() {
             text(" You\nlose!", {
                 size: 42
             }),
-            pos(width() / 2 - 55, height() / 2 - 50)
+            pos(width() / 2 - 60, height() / 2 - 50)
         ])
     })
     
