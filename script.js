@@ -25,7 +25,7 @@ function main() {
 function handleOrientation(event) {
     const {alpha, beta, gamma} = event
     
-    test.text = `${beta}, ${gamma}`
+    test.text = `${beta.toFixed(1)}, ${gamma.toFixed(1)}`
 }
 
 async function requestDeviceOrientation() {
