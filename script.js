@@ -39,7 +39,7 @@ function main() {
                 size: 24
             }),
             pos(width() / 2 - 50, height() / 2 + 55),
-            color(255, 255, 255)
+            color(0, 0, 0)
         ])
     })
     
@@ -143,6 +143,11 @@ if (device !== "phone") {
     document.body.innerHTML = "<h1>This game is not available on your device. Please try again on a phone.</h1>"
 }
 else {
-    document.body.innerHTML = document.body.innerHTML + '<button id = "start">Play</button>'
+    document.body.innerHTML = document.body.innerHTML + `
+<div id = "container">
+    <h3>PhysicsBall</h3>
+    <button id = "start">Play</button>
+</div>
+    `
     document.getElementById("start").addEventListener("click", requestDeviceOrientation)
 }
