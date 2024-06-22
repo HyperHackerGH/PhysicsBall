@@ -20,7 +20,7 @@ function main() {
             text(" You\nlose!", {
                 size: 42
             }),
-            pos(width() / 2 - 50, height() / 2 - 50)
+            pos(width() / 2 - 55, height() / 2 - 50)
         ])
     })
     
@@ -124,5 +124,6 @@ if (device !== "phone") {
     document.body.innerHTML = "<h1>This game is not available on your device. Please try again on a phone.</h1>"
 }
 else {
+    document.body.innerHTML = document.body.innerHTML + '<button id = "start">Start</button>'
     document.getElementById("start").addEventListener("click", requestDeviceOrientation)
 }
