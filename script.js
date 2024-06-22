@@ -23,7 +23,7 @@ function handleOrientation(event) {
         pos(80, 80)
     ])
 }
-
+ // aa
 async function requestDeviceOrientation() {
     if (typeof DeviceOrientationEvent !== "undefined" && typeof DeviceOrientationEvent.requestPermission === "function") {
         try {
