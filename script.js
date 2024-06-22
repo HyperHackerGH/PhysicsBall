@@ -23,12 +23,12 @@ function main() {
             text(`Points: ${points}\n\n   You\n  lose!`, {
                 size: 42
             }),
-            pos(width() / 2 - 115, height() / 2 - 130)
+            pos(width() / 2 - 110, height() / 2 - 130)
         ])
 
         add([
             rect(120, 40),
-            pos(width() / 2 - 60, height() / 2 + 70),
+            pos(width() / 2 - 60, height() / 2 + 90),
             color(255, 255, 255),
             area(),
             "restart"
@@ -51,7 +51,7 @@ function main() {
     scene("game", () => {
         const pointdisp = add([
             text("Points: " + points, {size: 24}),
-            pos(10, 10)
+            pos(15, 15)
         ])
         
         ball = add([
