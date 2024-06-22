@@ -9,7 +9,7 @@ const device = (() => {
 
 function main() {
     const test = add([
-        text(`${alpha}, ${beta}, ${gamma}`),
+        text("a, b, g"),
         pos(80, 80)
     ])
     
