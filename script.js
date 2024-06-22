@@ -7,16 +7,12 @@ const device = (() => {
     return "desktop"
 })()
 
-function play() {
-    kaboom()
-
-    function handleOrientation(event) {
-        const {alpha, beta, gamma} = event
-        add([
-            text(`${alpha}, ${beta}, ${gamma}`),
-            pos(80, 80)
-        ])
-    }
+function handleOrientation(event) {
+    const {alpha, beta, gamma} = event
+    add([
+        text(`${alpha}, ${beta}, ${gamma}`),
+        pos(80, 80)
+    ])
 }
 
 async function requestDeviceOrientation() {
@@ -25,7 +21,7 @@ async function requestDeviceOrientation() {
             const permissionState = await DeviceOrientationEvent.requestPermission()
             if (permissionState === "granted") {
                 window.addEventListener("deviceorientation", handleOrientation)
-                play()
+                kaboom()
             }
             else {
                 alert("Permission was denied")
@@ -37,7 +33,7 @@ async function requestDeviceOrientation() {
     }
     else if ("DeviceOrientationEvent" in window) {
         window.addEventListener("deviceorientation", handleOrientation)
-        play()
+        kaboom()
     }
     else {
         alert("Device orientation is not supported on your device")
