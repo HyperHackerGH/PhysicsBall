@@ -38,6 +38,7 @@ function main() {
             if (blinkcount < 8) {
                 if (blinkcount % 2 == 0) {blinker.color = rgb(255, 0, 0)}
                 else {blinker.color = rgb(0, 0, 0)}
+                blinkcount++
             }
         })
         
