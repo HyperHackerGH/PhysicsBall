@@ -7,6 +7,7 @@ const device = (() => {
     return "desktop"
 })()
 
+var enemies = []
 var ball
 
 function main() {
@@ -20,6 +21,24 @@ function main() {
         color(255, 255, 255),
         "ball"
     ])
+
+    loop(5, () => {
+        var newenemy = add([
+            circle(15),
+            pos(0, 0),
+            color(255, 0, 0),
+            "enemy"
+        ])
+
+        enemies.push(newenemy)
+    })
+
+    onUpdate(() => {
+        for (let i of enemies) {
+            var dir = ball.pos.sub(i.pos).unit()
+            i.move(dir, 100)
+        }
+    })
 
     add([
         circle(10),
