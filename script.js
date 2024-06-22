@@ -20,10 +20,10 @@ function main() {
 
     scene("lose", () => {
         add([
-            text(`Points: ${points}   You\n  lose!`, {
+            text(`Points: ${points}\n   You\n  lose!`, {
                 size: 42
             }),
-            pos(width() / 2 - 60, height() / 2 - 50)
+            pos(width() / 2 - 70, height() / 2 - 50)
         ])
 
         add([
