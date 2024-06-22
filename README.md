@@ -1,1 +1,1 @@
-![Link to the Game](https://physicsball.vercel.app)
+![Link to the Game][https://physicsball.vercel.app]
