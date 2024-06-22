@@ -23,7 +23,7 @@ function main() {
             text(`Points: ${points}\n   You\n  lose!`, {
                 size: 42
             }),
-            pos(width() / 2 - 70, height() / 2 - 50)
+            pos(width() / 2 - 90, height() / 2 - 70)
         ])
 
         add([
