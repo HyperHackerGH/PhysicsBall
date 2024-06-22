@@ -17,10 +17,10 @@ function main() {
 
     scene("lose", () => {
         add([
-            text("You\nlose!", {
-                size: 36
+            text(" You\nlose!", {
+                size: 42
             }),
-            pos(width() / 2 - 100, height() / 2 - 50)
+            pos(width() / 2 - 50, height() / 2 - 50)
         ])
     })
     
