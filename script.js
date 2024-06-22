@@ -7,6 +7,7 @@ const device = (() => {
     return "desktop"
 })()
 
+var powerup = false
 var enemies = []
 var speed = 15
 var points = 0
@@ -96,6 +97,21 @@ function main() {
                     clearInterval(blinking)
                 }
             }, 200)
+        })
+
+        loop(10, () => {
+            if (powerup == false) {
+                add([
+                    text("?", {
+                        size: 32
+                    }),
+                    pos(randi(0, width() - 16), randi(0, height() - 16)),
+                    color(0, 255, 0),
+                    area(),
+                    "powerup"
+                ])
+                powerup = true
+            }
         })
 
         onUpdate(() => {
