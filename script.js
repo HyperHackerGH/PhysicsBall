@@ -7,38 +7,55 @@ const device = (() => {
     return "desktop"
 })()
 
-var ball
+var ball;
+var velocity = { x: 0, y: 0 };
 
 function main() {
     kaboom({
         background: [0, 0, 0]
-    })
+    });
 
     ball = add([
         circle(16),
         pos(width() / 2, height() / 2),
         color(255, 255, 255),
         "ball"
-    ])
+    ]);
 
     add([
         circle(10),
         pos(Math.random() * width(), Math.random() * height()),
         color(255, 215, 0),
         "item"
-    ])
+    ]);
 }
 
 function handleOrientation(event) {
-    const {alpha, beta, gamma} = event
-    const speed = 15
+    const { beta, gamma } = event;
+    const speed = 15;
 
     if (ball) {
-        ball.pos.x += gamma * speed * dt()
-        ball.pos.y += beta * speed * dt()
+        velocity.x = gamma * speed;
+        velocity.y = beta * speed;
+    }
+}
 
-        ball.pos.x = Math.max(0, Math.min(ball.pos.x, width()))
-        ball.pos.y = Math.max(0, Math.min(ball.pos.y, height()))
+function updateBall() {
+    if (ball) {
+        ball.pos.x += velocity.x * dt();
+        ball.pos.y += velocity.y * dt();
+
+        // Check for collision with walls and reverse velocity if necessary
+        if (ball.pos.x <= 0 || ball.pos.x >= width()) {
+            velocity.x = -velocity.x;
+        }
+        if (ball.pos.y <= 0 || ball.pos.y >= height()) {
+            velocity.y = -velocity.y;
+        }
+
+        // Ensure the ball stays within the screen bounds
+        ball.pos.x = Math.max(0, Math.min(ball.pos.x, width()));
+        ball.pos.y = Math.max(0, Math.min(ball.pos.y, height()));
     }
 }
 
@@ -49,6 +66,7 @@ async function requestDeviceOrientation() {
             if (permissionState === "granted") {
                 main()
                 window.addEventListener("deviceorientation", handleOrientation)
+                loop(0.016, updateBall);
             }
             else {
                 alert("Permission was denied")
@@ -59,6 +77,7 @@ async function requestDeviceOrientation() {
     else if ("DeviceOrientationEvent" in window) {
         main()
         window.addEventListener("deviceorientation", handleOrientation)
+        loop(0.016, updateBall);
     }
     else {alert("Device orientation is not supported on your device")}
 }
