@@ -11,7 +11,7 @@ var enemies = []
 var ball
 
 function main() {
-    document.getElementById("start").remove()
+    document.getElementById("container").remove()
     
     kaboom({
         background: [0, 0, 0]
@@ -29,16 +29,16 @@ function main() {
             rect(120, 40),
             pos(width() / 2 - 60, height() / 2 + 50),
             color(255, 255, 255),
-            {
-                onClick: () => {go("game")}
-            }
+            "restart"
         ])
+
+        onClick("restart", () => {go("main")})
 
         add([
             text("Restart", {
                 size: 24
             }),
-            pos(width() / 2 - 50, height() / 2 + 55),
+            pos(width() / 2 - 50, height() / 2 + 60),
             color(0, 0, 0)
         ])
     })
