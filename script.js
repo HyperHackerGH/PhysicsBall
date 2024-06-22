@@ -1,3 +1,5 @@
+import kaboom from "https://unpkg.com/kaboom@3000.0.1/dist/kaboom.mjs";
+
 const device = (() => {
     const ua = navigator.userAgent
     if (/Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(ua)) return "phone"
@@ -5,10 +7,25 @@ const device = (() => {
     return "desktop"
 })()
 
+var test
+
+function main() {
+    test = add([
+        text("a, b, g"),
+        pos(80, 80)
+    ])
+    
+    add([
+        text("PhysicsBall"),
+        pos(0, 0),
+        scale(2)
+    ])
+}
+
 function handleOrientation(event) {
     const {alpha, beta, gamma} = event
     
-    document.body.innerHTML = `${alpha}, ${beta}, ${gamma}`
+    test.text = `$${beta}, ${gamma}`
 }
 
 async function requestDeviceOrientation() {
@@ -16,6 +33,8 @@ async function requestDeviceOrientation() {
         try {
             const permissionState = await DeviceOrientationEvent.requestPermission()
             if (permissionState === "granted") {
+                kaboom()
+                main()
                 window.addEventListener("deviceorientation", handleOrientation)
             }
             else {
@@ -27,6 +46,8 @@ async function requestDeviceOrientation() {
         }
     }
     else if ("DeviceOrientationEvent" in window) {
+        kaboom()
+        main()
         window.addEventListener("deviceorientation", handleOrientation)
     }
     else {
