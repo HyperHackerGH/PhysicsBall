@@ -10,12 +10,14 @@ const device = (() => {
 var ball
 
 function main() {
-    kaboom()
+    kaboom({
+        background: [0, 0, 0]
+    })
 
     ball = add([
         circle(16),
         pos(width() / 2, height() / 2),
-        color(0, 0, 255),
+        color(255, 255, 255),
         "ball"
     ])
 
@@ -45,7 +47,6 @@ async function requestDeviceOrientation() {
         try {
             const permissionState = await DeviceOrientationEvent.requestPermission()
             if (permissionState === "granted") {
-                kaboom()
                 main()
                 window.addEventListener("deviceorientation", handleOrientation)
             }
@@ -53,18 +54,13 @@ async function requestDeviceOrientation() {
                 alert("Permission was denied")
             }
         }
-        catch (error) {
-            alert(error)
-        }
+        catch (error) {alert(error)}
     }
     else if ("DeviceOrientationEvent" in window) {
-        kaboom()
         main()
         window.addEventListener("deviceorientation", handleOrientation)
     }
-    else {
-        alert("Device orientation is not supported on your device")
-    }
+    else {alert("Device orientation is not supported on your device")}
 }
 
 if (device !== "phone") {
