@@ -1,14 +1,18 @@
 body {
     overflow: hidden;
     background: #000;
-    color: #fff
+    color: #fff;
+    font-family: "Roboto"
 }
 
 #container {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%)
+}
+
+#start {
     font-size: 24px;
     padding: 10px 20px;
     border: none;
