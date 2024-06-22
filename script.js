@@ -75,7 +75,7 @@ function main() {
             }
         })
 
-        oncollide("ball", "enemy", (ball, enemy) => {go("lose")})
+        onCollide("ball", "enemy", (ball, enemy) => {go("lose")})
 
         add([
             circle(10),
