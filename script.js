@@ -20,7 +20,7 @@ function main() {
 
     scene("lose", () => {
         add([
-            text(" You\nlose!", {
+            text(`Points: ${points}   You\n  lose!`, {
                 size: 42
             }),
             pos(width() / 2 - 60, height() / 2 - 50)
@@ -34,7 +34,10 @@ function main() {
             "restart"
         ])
 
-        onClick("restart", () => {go("game")})
+        onClick("restart", () => {
+            points = 0
+            go("game")
+        })
 
         add([
             text("Restart", {
@@ -106,12 +109,20 @@ function main() {
             points++
             pointdisp.text = "Points: " + points
             destroy(point)
+            add([
+                circle(10),
+                pos(Math.random() * width(), Math.random() * height()),
+                color(255, 215, 0),
+                area(),
+                "point"
+            ])
         })
         
         add([
             circle(10),
             pos(Math.random() * width(), Math.random() * height()),
             color(255, 215, 0),
+            area(),
             "point"
         ])
     })
