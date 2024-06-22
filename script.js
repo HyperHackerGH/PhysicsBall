@@ -14,12 +14,6 @@ function main() {
         text("a, b, g"),
         pos(80, 80)
     ])
-    
-    add([
-        text("PhysicsBall"),
-        pos(0, 0),
-        scale(2)
-    ])
 }
 
 function handleOrientation(event) {
