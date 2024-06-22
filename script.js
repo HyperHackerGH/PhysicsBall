@@ -8,6 +8,7 @@ const device = (() => {
 })()
 
 var enemies = []
+var points = 0
 var ball
 
 function main() {
@@ -29,6 +30,7 @@ function main() {
             rect(120, 40),
             pos(width() / 2 - 60, height() / 2 + 50),
             color(255, 255, 255),
+            area(),
             "restart"
         ])
 
