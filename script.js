@@ -24,6 +24,23 @@ function main() {
             }),
             pos(width() / 2 - 60, height() / 2 - 50)
         ])
+
+        add([
+            rect(120, 40),
+            pos(width() / 2 - 60, height() / 2 + 50),
+            color(0, 0, 255),
+            {
+                onClick: () => {go("game")}
+            }
+        ])
+
+        add([
+            text("Restart", {
+                size: 24
+            }),
+            pos(width() / 2, height() / 2 + 50),
+            color(255, 255, 255)
+        ])
     })
     
     scene("game", () => {
@@ -126,6 +143,6 @@ if (device !== "phone") {
     document.body.innerHTML = "<h1>This game is not available on your device. Please try again on a phone.</h1>"
 }
 else {
-    document.body.innerHTML = document.body.innerHTML + '<button id = "start">Start</button>'
+    document.body.innerHTML = document.body.innerHTML + '<button id = "start">Play</button>'
     document.getElementById("start").addEventListener("click", requestDeviceOrientation)
 }
