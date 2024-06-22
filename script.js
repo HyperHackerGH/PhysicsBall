@@ -20,8 +20,7 @@ function main() {
             text("You lose!", {
                 size: 48
             }),
-            pos(center()),
-            origin("center")
+            pos(center())
         ])
     })
     
