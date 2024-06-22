@@ -21,6 +21,27 @@ function main() {
         "ball"
     ])
 
+    function addMovingCircle() {
+        const movingCircle = add([
+            circle(10),
+            pos(Math.random() * width(), Math.random() * height()),
+            color(255, 0, 0),
+            "enemy"
+        ])
+
+        movingCircle.action(() => {
+            movingCircle.move(10 * dt(), 10 * dt())
+        })
+    }
+
+    for (let i = 0; i < 5; i++) {
+        addMovingCircle()
+    }
+
+    loop(2, () => {
+        addMovingCircle()
+    })
+
     add([
         circle(10),
         pos(Math.random() * width(), Math.random() * height()),
