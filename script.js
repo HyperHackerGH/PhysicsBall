@@ -29,6 +29,7 @@ function main() {
             circle(16),
             pos(width() / 2, height() / 2),
             color(255, 255, 255),
+            area(),
             "ball"
         ])
 
@@ -74,9 +75,7 @@ function main() {
             }
         })
 
-        onCollide("ball", "enemy", (ball, enemy) => {
-            debug.log("a")
-        })
+        onCollide("ball", "enemy", (ball, enemy) => {go("lose")})
 
         add([
             circle(10),
