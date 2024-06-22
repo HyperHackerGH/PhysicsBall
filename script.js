@@ -8,6 +8,7 @@ const device = (() => {
 })()
 
 var enemies = []
+var speed = 15
 var points = 0
 var ball
 
@@ -132,7 +133,6 @@ function main() {
 
 function handleOrientation(event) {
     const {alpha, beta, gamma} = event
-    const speed = 15
 
     if (ball) {
         ball.pos.x += gamma * speed * dt()
