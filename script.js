@@ -8,7 +8,7 @@ const device = (() => {
 })()
 
 var enemies = []
-var speed = 15
+var speed = 100
 var points = 0
 var ball
 
