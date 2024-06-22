@@ -8,7 +8,6 @@ const device = (() => {
 })()
 
 var enemies = []
-var lastpos = [20, 20]
 var ball
 
 function main() {
@@ -24,11 +23,9 @@ function main() {
     ])
 
     loop(5, () => {
-        if (enemies.length > 0) {lastpos = [enemies[enemies.length - 1].pos.x + randi(-30, 30), enemies[enemies.length - 1].pos.y] + randi(-30, 30)}
-        
         var newenemy = add([
             circle(15),
-            pos(lastpos[0], lastpos[1]),
+            pos(10, 10),
             color(255, 0, 0),
             area(),
             body(),
