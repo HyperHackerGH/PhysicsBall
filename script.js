@@ -25,7 +25,7 @@ function main() {
     loop(5, () => {
         var newenemy = add([
             circle(15),
-            pos(0, 0),
+            pos(20, 20),
             color(255, 0, 0),
             "enemy"
         ])
