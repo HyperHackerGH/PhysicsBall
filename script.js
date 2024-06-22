@@ -11,11 +11,11 @@ var enemies = []
 var ball
 
 function main() {
+    kaboom({
+        background: [0, 0, 0]
+    })
+    
     scene("game", () => {
-        kaboom({
-            background: [0, 0, 0]
-        })
-
         ball = add([
             circle(16),
             pos(width() / 2, height() / 2),
