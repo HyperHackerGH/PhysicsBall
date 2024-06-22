@@ -49,11 +49,12 @@ function main() {
                     body(),
                     "enemy"
                 ])
+
+                enemies.push(newenemy)
+                
                 clearInterval(blinking)
             }
         }, 200)
-
-        enemies.push(newenemy)
     })
 
     onUpdate(() => {
