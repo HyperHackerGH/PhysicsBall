@@ -51,7 +51,6 @@ function main() {
                     blinkcount++
                 }
                 else {
-                    destroy(blinker)
                     var newenemy = add([
                         circle(15),
                         pos(posx, posy),
@@ -62,7 +61,7 @@ function main() {
                     ])
 
                     enemies.push(newenemy)
-
+                    destroy(blinker)
                     clearInterval(blinking)
                 }
             }, 200)
@@ -76,8 +75,7 @@ function main() {
         })
 
         onCollide("ball", "enemy", (ball, enemy) => {
-            try {go("lose")}
-            catch (e) {debug.log(e)}
+            debug.log("a")
         })
 
         add([
