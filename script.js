@@ -28,7 +28,7 @@ function main() {
         add([
             rect(120, 40),
             pos(width() / 2 - 60, height() / 2 + 50),
-            color(0, 0, 255),
+            color(255, 255, 255),
             {
                 onClick: () => {go("game")}
             }
@@ -38,7 +38,7 @@ function main() {
             text("Restart", {
                 size: 24
             }),
-            pos(width() / 2, height() / 2 + 50),
+            pos(width() / 2 - 50, height() / 2 + 55),
             color(255, 255, 255)
         ])
     })
