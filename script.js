@@ -34,7 +34,7 @@ function main() {
             "restart"
         ])
 
-        onClick("restart", () => {go("main")})
+        onClick("restart", () => {go("game")})
 
         add([
             text("Restart", {
@@ -46,6 +46,11 @@ function main() {
     })
     
     scene("game", () => {
+        const pointdisp = add([
+            text("Points: " + points, {size: 24}),
+            pos(10, 10)
+        ])
+        
         ball = add([
             circle(16),
             pos(width() / 2, height() / 2),
@@ -97,12 +102,17 @@ function main() {
         })
 
         onCollide("ball", "enemy", (ball, enemy) => {go("lose")})
-
+        onCollide("ball", "point", (ball, point) => {
+            points++
+            pointdisp.text = "Points: " + points
+            destroy(point)
+        })
+        
         add([
             circle(10),
             pos(Math.random() * width(), Math.random() * height()),
             color(255, 215, 0),
-            "item"
+            "point"
         ])
     })
 
