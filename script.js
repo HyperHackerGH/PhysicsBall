@@ -7,7 +7,7 @@ const device = (() => {
     return "desktop"
 })()
 
-var enemies = []
+var enemies = [] // sadhuaohd
 var speed = 15
 var points = 0
 var ball
