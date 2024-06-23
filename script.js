@@ -100,7 +100,7 @@ function main() {
         })
 
         loop(10, () => {
-            if (powerup == false) {
+            if (!powerup) {
                 add([
                     circle(13),
                     pos(randi(0, width() - 16), randi(0, height() - 16)),
