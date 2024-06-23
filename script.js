@@ -100,18 +100,18 @@ function main() {
             }, 200)
         })
 
-        loop(10, () => {
-            if (!powerup) {
-                add([
-                    circle(13),
-                    pos(randi(0, width() - 16), randi(0, height() - 16)),
-                    color(0, 255, 0),
-                    area(),
-                    "powerup"
-                ])
-                powerup = true
-            }
-        })
+        // loop(10, () => {
+        //     if (!powerup) {
+        //         add([
+        //             circle(13),
+        //             pos(randi(0, width() - 16), randi(0, height() - 16)),
+        //             color(0, 255, 0),
+        //             area(),
+        //             "powerup"
+        //         ])
+        //         powerup = true
+        //     }
+        // })
 
         onUpdate(() => {
             for (let i of enemies) {
