@@ -22,7 +22,7 @@ function main() {
 
     scene("lose", () => {
         add([
-            text(`Points: ${points}\n\n   You\n  lose!`, {
+            text(`Points: ${points}\n\n   You\n  lose! LALABOO`, {
                 size: 42
             }),
             pos(width() / 2 - 110, height() / 2 - 130)
