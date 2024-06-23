@@ -182,7 +182,7 @@ async function requestDeviceOrientation() {
     else {alert("Device orientation is not supported on your device")}
 }
 
-if (!phone()) {
+if (!navigator.userAgentData.mobile) {
     document.body.innerHTML = "<h1>This game is not available on your device. Please try again on a phone.</h1>"
 }
 else {
