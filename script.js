@@ -38,6 +38,7 @@ function main() {
 
         onClick("restart", () => {
             points = 0
+            powerup = false
             go("game")
         })
 
