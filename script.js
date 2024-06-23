@@ -64,14 +64,6 @@ function main() {
             "ball"
         ])
 
-        const a = add([
-            circle(13),
-            pos(randi(0, width() - 16), randi(0, height() - 16)),
-            color(0, 255, 0),
-            area(),
-            "powerup"
-        ])
-
         loop(12, () => {
             var posx = randi(0, width() - 16)
             var posy = randi(0, height() - 16)
@@ -139,6 +131,11 @@ function main() {
                 area(),
                 "point"
             ])
+        })
+        onCollide("ball", "powerup", (ball, powerup) => {
+            destroy(powerup)
+            powerup = false
+            speed = speed + 5
         })
         
         add([
